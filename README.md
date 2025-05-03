@@ -47,6 +47,103 @@ The notebook performs:
 
 ---
 
+## 🛠️ Libraries Used
+
+- **pandas** – Data manipulation and analysis
+- **numpy** – Numerical operations
+- **seaborn** – Statistical data visualization
+- **matplotlib** – Plotting graphs
+
+---
+
+## 🧾 Code Explanation
+
+### 1. Importing Required Libraries
+```python
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+
+### 2. Reading the Dataset
+```python
+data = pd.read_csv('mymoviedb.csv', lineterminator='\n')
+```
+
+### 3. Inspecting the Dataset
+```python
+data.info()
+data.duplicated().sum()
+data.describe()
+```
+
+### 4. Formatting Release Dates
+```python
+data['Release_Date'] = pd.to_datetime(data['Release_Date'])
+data['Release_Date'] = data['Release_Date'].dt.year
+```
+
+### 5. Dropping Unnecessary Columns
+```python
+data.drop(['Overview','Original_Language','Poster_Url'], axis=1, inplace=True)
+```
+
+### 6. Categorizing Vote Averages
+```python
+def catigorize_col(data, col, labels):
+    edges = [data[col].describe()['min'],
+             data[col].describe()['25%'],
+             data[col].describe()['50%'],
+             data[col].describe()['75%'],
+             data[col].describe()['max']]
+    data[col] = pd.cut(data[col], edges, labels=labels, duplicates='drop')
+    return data
+
+labels = ['not_popular', 'below_avg', 'average', 'popular']
+catigorize_col(data, 'Vote_Average', labels)
+data['Vote_Average'].unique()
+```
+
+### 7. Missing Value Detection
+```python
+data.isna().sum()
+```
+
+### 8. Value Counts and Grouping
+```python
+data['Vote_Average'].value_counts()
+data.groupby('Genre')['Vote_Average'].value_counts()
+```
+
+### 9. Most Frequent Genre Visualization
+```python
+sns.catplot( y='Genre', data = data, kind = 'count', order = data['Genre'].value_counts().index)
+plt.title('Genre column distribution')
+plt.show()
+```
+
+### 10. Popularity by Genre
+```python
+data[data['Popularity'] == data['Popularity'].max()][['Title','Popularity','Genre']]
+```
+
+### 11. Vote Average Distribution
+```python
+sns.catplot( y='Vote_Average' , data=data , kind='count' , order=data['Vote_Average'].value_counts().index )
+plt.title('votes destribution')
+plt.show()
+```
+
+### 12. Yearly Movie Releases
+```python
+data['Release_Date'].hist()
+plt.title('Release_Date column distribution')
+plt.show()
+```
+
+---
+
 ## 🛠️ Tools & Technologies
 
 - **Jupyter Notebook**
