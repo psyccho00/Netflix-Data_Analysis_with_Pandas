@@ -18,7 +18,7 @@ The notebook performs:
 
 **Source:** [Netflix Dataset on Kaggle](https://www.kaggle.com/shivamb/netflix-shows)
 
-**File used:** `netflix_titles.csv`
+**File used:** `mymoviedb.csv`
 
 ### Key Columns:
 - `title`: Title of the show
@@ -47,7 +47,6 @@ The notebook performs:
 
 ## 🛠️ Tools & Technologies
 
-- **Python 3**
 - **Jupyter Notebook**
 - **Pandas** – Data manipulation
 - **Matplotlib & Seaborn** – Data visualization
@@ -110,4 +109,12 @@ This project is licensed under the MIT License. Feel free to use, modify, and di
 - Dataset provided by [Kaggle - Shivam Bansal](https://www.kaggle.com/shivamb/netflix-shows)
 - Inspired by the growing importance of data-driven content strategy in the entertainment industry
 
+---
 
+## 👨‍💻 Author
+
+Made by [@psyccho00](https://github.com/psyccho00)
+
+If you liked this, please ⭐ the repo!
+
+*Happy Analyzing! 🍕*
