@@ -2,6 +2,8 @@
 
 This project involves exploratory data analysis (EDA) on the Netflix Movies and TV Shows dataset. The objective is to understand content trends, gain business insights, and discover patterns in Netflix’s catalog using data analysis and visualization techniques.
 
+![](https://github.com/psyccho00/Netflix-Data_Analysis_with_Pandas/blob/main/netflix.png)
+
 ## 📊 Project Overview
 
 Netflix is one of the leading streaming platforms globally, offering a wide range of movies and TV shows. This project analyzes various attributes such as release year, genre, country of origin, ratings, and more to identify trends and answer business-related questions using Python.
